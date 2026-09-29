@@ -13,8 +13,8 @@ image = np.array(Image.open(io.BytesIO(image_data)))
 # Write your code below
 gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 
-sobel_x = cv2.Sobel(image, cv2.CV_64F,1,0, ksize=3)
-sobel_y = cv2.Sobel(image, cv2.CV_64F,0,1, ksize=3)
+sobel_x = cv2.Sobel(gray_image, cv2.CV_64F,1,0, ksize=3)
+sobel_y = cv2.Sobel(gray_image, cv2.CV_64F,0,1, ksize=3)
 sobel_img = cv2.magnitude(sobel_x,sobel_y)
 
 canny_img = cv2.Canny(gray_image, 200, 300)
